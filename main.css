@@ -1,0 +1,348 @@
+/*general coding for the home page*/
+body{
+    width: 100%;
+    margin: 0;
+    font-family: 'ibm-plex-serif';
+    background-color: #D1E8FE;
+}
+html {
+    scroll-behavior: smooth;
+}
+/*end of the general coding/
+
+
+/* this is put on so the viewer can scroll back to the top button*/
+.scroll-top{
+    top: calc(50% - 80px);
+}
+/*end of scroll button*/
+
+
+/* this is used for the navigation links*/
+.header{
+    width: 100%;
+}
+.index-nav-bar {
+    color: #000000;
+    background-color: #FEC1BC;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    z-index: 3;
+} 
+
+.index-nav-bar ul{
+    margin: 20;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #FEC1B1;
+}
+
+.index-nav-bar ul a{
+    display: block;
+    padding: 20px;
+    font-size: 25px;
+    border-right: 2px solid #000000;
+    text-decoration: none;
+    color: #000000;
+}
+.index-nav-bar ul a:hover{
+    background-color: #60B36F;
+    color: #000000;
+}
+
+.index-nav-bar .index-first-logo {
+    float: left;
+    opacity: 2; /*make top left logo appear mobile*/
+    font-size: 200px;
+    padding: 20px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000000;
+    font-size: 35px;
+}
+
+.index-nav-bar .menu{
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+/*--------Nav-Hamburger---------*/
+.index-nav-bar .burger-icon {
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.index-nav-bar .burger-icon .nav-icon{
+    background: #60B36F; 
+    display: block;
+    height: 4px;
+    width: 25px;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+.index-nav-bar .burger-icon .nav-icon:before{
+    background: #60B36F;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    top: 5px;
+}
+.index-nav-bar .burger-icon .nav-icon:after{
+    background: #60B36F;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    top: -5px;
+}
+
+.index-nav-bar .menu-button{
+    display: none;
+}
+
+.index-nav-bar .menu-button:checked ~ .menu{
+    max-height: 240px; /*transition was already set up in .header .menu and max height was zero but now when checked, we've made max-height to 240px*/
+}
+
+.index-nav-bar .menu-button:checked ~ .burger-icon .nav-icon{
+    background: transparent;
+}
+
+.index-nav-bar .menu-button:checked ~ .burger-icon .nav-icon:before{
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.index-nav-bar .menu-button:checked ~ .burger-icon .nav-icon:after{
+    transform: rotate(45deg);
+    top: 0;
+}
+
+/* this code will help with the responsive part of my website for the navigation part*/
+ @media (min-width: 48em){ 
+    .index-nav-bar li{
+        float: left;
+    }
+    .index-nav-bar li a{
+        padding: 30px 30px; 
+    }
+    .index-nav-bar .menu{
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+    .index-nav-bar .burger-icon{
+        display: none;
+    }
+    .index-nav-bar .index-first-logo{
+        opacity: 0;/*make top left logo disappear desktop*/
+    }
+
+
+ }
+ /*--------------------index-second-content---------------*/
+ .index-second-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    background-color: #FEC1B1;
+}
+.index-second-logo {
+    justify-content: center;
+    display: none;/*make big logo disappear mobile*/
+    padding-top: 40px;
+}
+.index-second-logo a{
+    font-size: 100px;
+    font-family: 'ibm-plex-serif';
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+    opacity: 1;
+    text-align: center;
+}
+
+
+.index-icons-wrap{
+    width: 100%;
+    text-align: center;
+}
+
+#index-breakfast-icon{
+    grid-area: dry-skin-icon;
+}
+#index-lunch-icon{
+    grid-area: oily-skin-icon;
+}
+#index-dinner-icon{
+    grid-area: combination-skin-icon;
+}
+#index-desserts-icon{
+    grid-area: sensitive-skin-icon;
+}
+img.icon-hover {
+    margin:20px;
+    padding: 3px;
+      -webkit-transition: margin 0.5s ease-out;
+      -moz-transition: margin 0.5s ease-out;
+      -o-transition: margin 0.5s ease-out;
+}
+  img.icon-hover:hover {
+	cursor:pointer;
+    margin-top: 5px;
+}
+.index-icons-wrap{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: 
+    "dry-skin-icon oily-skin-icon"
+    "combination-skin-icon sensitive-skin-icon";
+}
+
+.index-icons-wrap a{
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    display: block;
+    width: 100%;
+}
+.index-icons-wrap img{
+    width: 100%x;
+}
+
+
+#scroll-down-for-more{
+    width: 100px;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+
+@media screen and (min-width: 48em){
+    .index-second-container{
+        height:100%;
+    }
+    .index-icons-wrap{
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-areas: 
+        "dry-skin-icon oily-skin-icon combination-skin-icon sensitive-skin-icon";
+    }
+    .index-second-logo{
+        display: flex;
+    }
+    #scroll-down-for-more{
+        padding-top: 10px;
+    }
+}
+
+
+/*------------index-third-container----------------*/
+.index-third-container img{
+    width: 200px;
+}
+.index-third-container{
+    width: 100%;
+    padding: 0 25px;
+    margin: 0 auto;
+}
+.index-third-container p{
+    font-size: 20px;
+    color: #000000;
+}
+.index-third-container h3{
+    font-size: 30px;
+    font-weight: bold;
+    color: #60B36F;
+}
+.index-skin-type{
+    padding: 85px 0 80px 0;
+}
+
+/*---------------index-third-content grid area*-----------/
+/*description*/
+/*cookbook*/
+.index-self-cookbook{
+    padding-bottom: 80px;
+}
+
+.index-self-cookbook-text {
+    text-align: center;
+    grid-area: self-cookbook-text;
+}
+.book-message{
+    margin: 0 auto;
+    grid-area: book-message;
+}
+
+/*why must be healthy*/
+.index-healthy-everyone-image {
+    margin: 0 auto;
+    grid-area: everyone-image;
+}
+.index-healthy-everyone-text{
+    text-align: center;
+    grid-area: everyone-text;
+}
+
+/*index third content grid*/
+.index-self-cookbook{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 auto;
+    grid-gap: 10px;
+    grid-template-areas:
+    "book-message"
+    "self-cookbook-text";
+}
+.index-chefs-everyone{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 auto;
+    grid-gap: 10px;
+    grid-template-areas:
+    "everyone-image"
+    "everyone-text";
+}
+
+/*mobile response: third container*/
+@media screen and (min-width: 48em){
+    .index-third-container{
+        width: 800px;
+    }
+    .index-self-cookbook{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 auto;
+        grid-gap: 10px;
+        grid-template-areas:
+        "self-cookbook-text book-message";
+    }
+    .index-chefs-everyone{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 auto;
+        grid-gap: 10px;
+        grid-template-areas:
+        "everyone-image everyone-text";
+        }
+}
+
+
+    
